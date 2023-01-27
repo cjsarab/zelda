@@ -1,12 +1,7 @@
 import React from "react";
-import { Link, useParams } from 'react-router-dom';
-import StaffItem from './StaffItem';
+import { Link } from 'react-router-dom';
 
 const StaffList = ({staff}) => {
-
-    const {staffId} = useParams();
-
-    const junk = 'junk';
 
 
     const staffItems = staff.map((staffItem) => {
