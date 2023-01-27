@@ -15,10 +15,8 @@ const GamesList = ({games, getGameId}) => {
             <h2>
                 {game.name}
             </h2>
-            <Link to={`/games/${game.id}`}>More info...</Link>
-            <div>
-                {game.description}
-            </div>
+            <Link to={`/games/${game.id}`}>Description...</Link>
+
             <div>
                 <b>Developer: </b>{game.developer}
             </div>
