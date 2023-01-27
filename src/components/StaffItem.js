@@ -1,9 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const StaffItem = ({staff}) => {
-
-
-
 
 
   return (
@@ -11,10 +9,10 @@ const StaffItem = ({staff}) => {
         <div>
             {staff.name}
         </div>
-        <div>
-            Worked on: 
-            <a href="">Game</a>
-        </div>
+        {/* <div>
+        <Link to={`/games/${game.id}`}>Description...</Link>
+
+        </div> */}
         <div>
           
         </div>

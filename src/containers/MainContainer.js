@@ -46,10 +46,10 @@ const MainContainer = () => {
         <NavBar />
             <Routes>
                 <Route exact path="/" element={<Home />} />
-                <Route exact path="/games" element={<GamesList games={games} getGameId={getGameId}/>} />
+                <Route exact path="/games" element={<GamesList games={games}/>} />
                 {/* <Route exact path="/games/:gameId" element={<GameItem games={games} />} /> */}
                 <Route exact path="/games/:gameId" element={<SingleGame games={games} />} />
-                <Route exact path="/staff" element={<StaffList staff={staff} /> } />
+                <Route exact path="/staff" element={<StaffList staff={staff} games={games}/> } />
 
 
 

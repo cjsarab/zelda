@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const GamesList = ({games, getGameId}) => {
+const GamesList = ({games}) => {
 
 
     games.sort(function (x, y) {
@@ -12,23 +12,13 @@ const GamesList = ({games, getGameId}) => {
 
     const gameItems = games.map((game) => {
     return <div key={game.id}>
-            <h2>
-                {game.name}
-            </h2>
+                <h2>  {game.name}  </h2>
             <Link to={`/games/${game.id}`}>Description...</Link>
 
-            <div>
-                <b>Developer: </b>{game.developer}
-            </div>
-            <div>
-                <b>Publisher: </b>{game.publisher}
-            </div>
-            <div>
-                <b>Release Date: </b>{game.released_date}
-            </div>
-            <div>
+            <div>   <b>Developer: </b>{game.developer}</div>
+            <div>   <b>Publisher: </b>{game.publisher}</div>
+            <div>   <b>Release Date: </b>{game.released_date}</div>
                 <hr></hr>
-            </div>
             </div>
       });
 
