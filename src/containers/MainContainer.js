@@ -1,28 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { UseParams } from "react-router-dom";
 
 import NavBar from '../components/NavBar';
 import Home from '../components/Home';
 import GamesList from '../components/GamesList';
 import SingleGame from '../components/SingleGame';
 import StaffList from '../components/StaffList';
+import CharactersList from '../components/CharactersList';
+import SingleCharacter from '../components/SingleCharacter';
 
 
 const MainContainer = () => {
 
     const [games, setGames] = useState([])
     const [staff, setStaff] = useState([])
+    const [characters, setCharacters] = useState([])
 
-    const [gameId, setGameId] = useState("")
 
     useEffect(() => {
         getGames();
         getStaff();
+        getCharacters();
     }, []);
 
     const getGames = function() {
-        fetch("https://zelda.fanapis.com/api/games")
+        fetch("https://zelda.fanapis.com/api/games?limit=100")
         .then(res => res.json())
         .then(data => setGames(data.data))
     };
@@ -33,11 +35,11 @@ const MainContainer = () => {
         .then(data => setStaff(data.data))
     };
 
-    const getGameId = function(gameId) {
-        setGameId(gameId);
+    const getCharacters = function() {
+        fetch("https://zelda.fanapis.com/api/characters?limit=200")
+        .then(res => res.json())
+        .then(data => setCharacters(data.data))
     }
-
-    games.sort((a, b) => a.released_date - b.released_date)
 
 
   return (
@@ -47,10 +49,10 @@ const MainContainer = () => {
             <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route exact path="/games" element={<GamesList games={games}/>} />
-                {/* <Route exact path="/games/:gameId" element={<GameItem games={games} />} /> */}
                 <Route exact path="/games/:gameId" element={<SingleGame games={games} />} />
-                <Route exact path="/staff" element={<StaffList staff={staff} games={games}/> } />
-
+                <Route exact path="/staff" element={<StaffList staff={staff}/> } />
+                <Route exact path="/characters" element={<CharactersList characters={characters}/>} />
+                <Route exact path="/characters/:characterId" element={<SingleCharacter characters={characters} />} />
 
 
             </Routes>
