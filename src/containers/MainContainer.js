@@ -17,6 +17,9 @@ import SingleDungeon from '../components/SingleDungeon';
 
 const MainContainer = () => {
 
+    const [isLoading, setIsLoading] = useState(true)
+    const [currentPage, setCurrentPage] = useState (0)
+    const [itemsPerPage, setItemsPerPage] = useState (20)
     const [games, setGames] = useState([])
     const [staff, setStaff] = useState([])
     const [characters, setCharacters] = useState([])
@@ -26,6 +29,7 @@ const MainContainer = () => {
 
 
     useEffect(() => {
+        // getItemsPerPage();
         getGames();
         getStaff();
         getCharacters();
@@ -65,11 +69,36 @@ const MainContainer = () => {
     };
 
     const getDungeons = function() {
-        fetch("https://zelda.fanapis.com/api/dungeons?limit=50&page=6 ")
+        fetch(`https://zelda.fanapis.com/api/dungeons?limit=10&page=${currentPage}`)
         .then(res => res.json())
         .then(data => setDungeons(data.data))
     };
 
+    // async function getDungeons() {
+    //     let allData = [];
+    //     let morePagesAvailable = true;
+    //     let currentPage = 0;
+      
+    //     while(morePagesAvailable) {
+    //       currentPage++;
+    //       const response = await fetch(`https://zelda.fanapis.com/api/dungeons?page=${currentPage}`)
+    //       let { data, total_pages } = await response.json();
+    //       data.forEach(e => allData.unshift(e));
+    //       morePagesAvailable = currentPage < total_pages;
+    //     }
+      
+    //     setDungeons(allData)
+    //   }
+
+    function nextCurrentPage() {
+        console.log("Current page = " + currentPage)
+        setCurrentPage(currentPage+1)
+        console.log("Changed current page to " + currentPage)
+    }
+
+    function assignCurrentPage(page) {
+        setCurrentPage(page)
+    } 
 
   return (
     <>
@@ -86,8 +115,8 @@ const MainContainer = () => {
                 <Route exact path="/monsters/:monsterId" element={<SingleMonster monsters={monsters} />} />
                 <Route exact path="/bosses" element={<BossesList bosses={bosses}/>} />
                 <Route exact path="/bosses/:bossId" element={<SingleBoss bosses={bosses} />} />
-                <Route exact path="/dungeons" element={<DungeonsList dungeons={dungeons}/>} />
-                <Route exact path="/dungeons/:dungeonId" element={<SingleDungeon dungeons={dungeons} />} />
+                <Route exact path="/dungeons" element={<DungeonsList dungeons={dungeons} assignCurrentPage={assignCurrentPage} getDungeons={getDungeons} setDungeons={setDungeons}/>} />
+                <Route exact path="/dungeons/:dungeonId" element={<SingleDungeon dungeons={dungeons}/>} />
 
             </Routes>
     </Router>
