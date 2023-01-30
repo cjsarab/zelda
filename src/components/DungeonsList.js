@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 
-const dungeonsList = ({dungeons, assignCurrentPage, getDungeons, setDungeons}) => {
+const dungeonsList = ({dungeons, assignCurrentPage, currentPage, getDungeons, setDungeons}) => {
 
 
     dungeons.sort(function (x,y) {
@@ -22,12 +22,14 @@ const dungeonsList = ({dungeons, assignCurrentPage, getDungeons, setDungeons}) =
       });
 
 
+
+
     const handlePageClick = async (data) => {
-        console.log(data.selected)
-        assignCurrentPage(data.selected+1);
+        console.log(data)
+
+        assignCurrentPage(data.selected)
 
         const tempDungeonsData = await getDungeons();
-        setDungeons(tempDungeonsData.data)
     }
 
   return (
@@ -39,7 +41,7 @@ const dungeonsList = ({dungeons, assignCurrentPage, getDungeons, setDungeons}) =
             nextLabel="Next Page"
             onPageChange={handlePageClick}
             pageCount = {10}
-            pageRangeDisplayed = {5} 
+            pageRangeDisplayed = {10} 
             />
 
         </>
