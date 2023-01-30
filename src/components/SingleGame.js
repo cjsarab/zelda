@@ -27,7 +27,7 @@ const SingleGame = ({games}) => {
                 <b>Release Date: </b>{game.released_date}
             </div>
             <div>
-                <Link to='/games'> Back to Games </Link>
+                <Link to='/games'> All games... </Link>
             </div>
             <div>
                 <hr></hr>

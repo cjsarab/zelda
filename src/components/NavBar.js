@@ -18,6 +18,15 @@ const NavBar = () => {
             <li className='characters'>
                 <Link to="/characters">Characters</Link>
             </li>
+            <li className='monsters'>
+                <Link to="/monsters">Monsters</Link>
+            </li>
+            <li className='bosses'>
+                <Link to="/bosses">Bosses</Link>
+            </li>
+            <li className='dungeons'>
+                <Link to="/dungeons">Dungeons</Link>
+            </li>
         </ul>
     </div>
   )
