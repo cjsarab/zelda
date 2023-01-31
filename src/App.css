@@ -1,39 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 .app {
-    background: url('../src/img/bg2.png');
-    background-position: center;
-    background-repeat: repeat;
-    margin: 0 auto;
+    background-image: linear-gradient(black, green);
+    margin: -1vh;
   }
 
 .title-banner {
-    background-image: linear-gradient(green, black);
+    background-image: linear-gradient(lime, green, black);
     display: flex;
-    color: white;
+    color: gold;
     justify-content: center;
-    background-color: black;
+    align-items: center;
+    border: 0.5vh solid black;
+    margin: 0;
+    height: 17vh;
+}
+
+img {
+    height: 12vh;
+    margin: 0;
 }
 
 .header {
     font-size: 5vw;
-    font-family: Verdana, Tahoma, sans-serif;
-    font-weight: lighter;
+    font-family: 'Montserrat', Tahoma, sans-serif;
+    margin-left: 5vw;
+    margin-right: 5vw;
+
+}
+
+.header::first-letter {
+    font-size: 8vw;
 }
 
 .navi-links {
+    background-image: linear-gradient(yellow, gold, black);
     display: flex;
     list-style: none;
     justify-content: center;
+    border: 0.5vh solid black;
+    margin: 0;
+    padding: 1vh;
+}
 
+.navi-title {
+    font-family: 'Montserrat', Tahoma, sans-serif;
+    font-weight:bolder;
+    color: white;
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
 .home-logo-button {
-    height: 20vh;
+    height: 18vh;
     width: auto;
+    transition: transform .25s;
+}
+
+.home-logo-button:hover {
+    transform:scale(1.18)
 }
 
 .other-logo-button {
     height: 10vh;
     width: auto;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+    transition: transform .25s;
+}
+
+.other-logo-button:hover {
+    transform: scale(1.2);
 }
   

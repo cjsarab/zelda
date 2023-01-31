@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import TitleBanner from '../components/TitleBanner';
 import NavBar from '../components/NavBar';
 import Home from '../components/Home';
 import GamesList from '../components/GamesList';
@@ -112,28 +113,30 @@ const MainContainer = () => {
   return (
     <>
     <Router>
-        <NavBar />
-            <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route exact path="/games" element={<GamesList games={games} setGames={setGames}/>} />
-                <Route exact path="/games/:gameId" element={<SingleGame games={games} />} />
-                <Route exact path="/staff" element={<StaffList staff={staff} setStaff={setStaff}/> } />
-                <Route exact path="/characters" element={<CharactersList characters={characters} setCharacters={setCharacters}/>} />
-                <Route exact path="/characters/:characterId" element={<SingleCharacter characters={characters} />} />
-                <Route exact path="/monsters" element={<MonstersList monsters={monsters} setMonsters={setMonsters}/>} />
-                <Route exact path="/monsters/:monsterId" element={<SingleMonster monsters={monsters} />} />
-                <Route exact path="/bosses" element={<BossesList bosses={bosses} setBosses={setBosses}/>} />
-                <Route exact path="/bosses/:bossId" element={<SingleBoss bosses={bosses} />} />
-                <Route exact path="/dungeons" element={<DungeonsList dungeons={dungeons} setDungeons={setDungeons}/>} />
-                <Route exact path="/dungeons/:dungeonId" element={<SingleDungeon dungeons={dungeons}/>} />
-                <Route exact path="/places" element={<PlacesList places={places} setPlaces={setPlaces}/>} />
-                <Route exact path="/places/:placeId" element={<SinglePlace places={places}/>} />
-                <Route exact path="/items" element={<ItemsList items={items} setItems={setItems}/>} />
-                <Route exact path="/items/:itemId" element={<SingleItem items={items}/>} />
+        <TitleBanner />
+
+            <NavBar />
+                <Routes>
+                    <Route exact path="/" element={<Home />} />
+                    <Route exact path="/games" element={<GamesList games={games} setGames={setGames}/>} />
+                    <Route exact path="/games/:gameId" element={<SingleGame games={games} />} />
+                    <Route exact path="/staff" element={<StaffList staff={staff} setStaff={setStaff}/> } />
+                    <Route exact path="/characters" element={<CharactersList characters={characters} setCharacters={setCharacters}/>} />
+                    <Route exact path="/characters/:characterId" element={<SingleCharacter characters={characters} />} />
+                    <Route exact path="/monsters" element={<MonstersList monsters={monsters} setMonsters={setMonsters}/>} />
+                    <Route exact path="/monsters/:monsterId" element={<SingleMonster monsters={monsters} />} />
+                    <Route exact path="/bosses" element={<BossesList bosses={bosses} setBosses={setBosses}/>} />
+                    <Route exact path="/bosses/:bossId" element={<SingleBoss bosses={bosses} />} />
+                    <Route exact path="/dungeons" element={<DungeonsList dungeons={dungeons} setDungeons={setDungeons}/>} />
+                    <Route exact path="/dungeons/:dungeonId" element={<SingleDungeon dungeons={dungeons}/>} />
+                    <Route exact path="/places" element={<PlacesList places={places} setPlaces={setPlaces}/>} />
+                    <Route exact path="/places/:placeId" element={<SinglePlace places={places}/>} />
+                    <Route exact path="/items" element={<ItemsList items={items} setItems={setItems}/>} />
+                    <Route exact path="/items/:itemId" element={<SingleItem items={items}/>} />
 
 
 
-            </Routes>
+                </Routes>
     </Router>
     </>
   )
