@@ -2,6 +2,16 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
+@font-face {
+    font-family: grapenuts;
+    src: url(./fonts/GrapeNuts-Regular.ttf);
+  }
+
+@font-face {
+    font-family: ibm;
+    src: url(./fonts/IBM_Plex_Sans/IBMPlexSans-Medium.ttf)
+}
+
 .app {
     background-image: linear-gradient(black, green);
     margin: -1vh;
@@ -25,7 +35,8 @@ img {
 
 .header {
     font-size: 5vw;
-    font-family: 'Montserrat', Tahoma, sans-serif;
+    /* font-family: 'Montserrat', Tahoma, sans-serif; */
+    font-family: ibm;
     margin-left: 5vw;
     margin-right: 5vw;
 
