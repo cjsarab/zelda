@@ -1,0 +1,39 @@
+.app {
+    background: url('../src/img/bg2.png');
+    background-position: center;
+    background-repeat: repeat;
+    margin: 0 auto;
+  }
+
+.title-banner {
+    background-image: linear-gradient(green, black);
+    display: flex;
+    color: white;
+    justify-content: center;
+    background-color: black;
+}
+
+.header {
+    font-size: 5vw;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-weight: lighter;
+}
+
+.navi-links {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+
+}
+
+
+.home-logo-button {
+    height: 20vh;
+    width: auto;
+}
+
+.other-logo-button {
+    height: 10vh;
+    width: auto;
+}
+  
