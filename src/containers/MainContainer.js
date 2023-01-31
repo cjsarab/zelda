@@ -38,41 +38,45 @@ const MainContainer = () => {
         getDungeons();
     }, []);
 
-    const getGames = function() {
-        fetch("https://zelda.fanapis.com/api/games?limit=100")
-        .then(res => res.json())
-        .then(data => setGames(data.data))
+    const getGames = async () => {
+        const res = await fetch(
+            "https://zelda.fanapis.com/api/games?limit=20&page=0"
+        );
+        const data = await res.json();
+        setGames(data.data);
     };
 
-    const getStaff = function() {
-        fetch("https://zelda.fanapis.com/api/staff")
-        .then(res => res.json())
-        .then(data => setStaff(data.data))
+    const getStaff = async () => {
+        const res = await fetch(
+            "https://zelda.fanapis.com/api/staff?limit=20&page=0"
+        );
+        const data = await res.json();
+        setStaff(data.data);
     };
 
-    const getCharacters = function() {
-        fetch("https://zelda.fanapis.com/api/characters?limit=200")
-        .then(res => res.json())
-        .then(data => setCharacters(data.data))
+    const getCharacters = async () => {
+        const res = await fetch(
+            "https://zelda.fanapis.com/api/characters?limit=20&page=0"
+        );
+        const data = await res.json();
+        setCharacters(data.data);
     };
 
-    const getMonsters = function() {
-        fetch("https://zelda.fanapis.com/api/monsters?limit=100")
-        .then(res => res.json())
-        .then(data => setMonsters(data.data))
+    const getMonsters = async () => {
+        const res = await fetch(
+            "https://zelda.fanapis.com/api/monsters?limit=20&page=0"
+        );
+        const data = await res.json();
+        setMonsters(data.data);
     };
 
-    const getBosses = function() {
-        fetch("https://zelda.fanapis.com/api/bosses?limit=100")
-        .then(res => res.json())
-        .then(data => setBosses(data.data))
+    const getBosses = async () => {
+        const res = await fetch(
+            "https://zelda.fanapis.com/api/bosses?limit=20&page=0"
+        );
+        const data = await res.json();
+        setBosses(data.data);
     };
-
-    // const getDungeons = function() {
-    //     fetch(`https://zelda.fanapis.com/api/dungeons?limit=20&page=${currentPage}`)
-    //     .then(res => res.json())
-    //     .then(data => setDungeons(data.data))
-    // };
 
     const getDungeons = async () => {
         const res = await fetch(
@@ -82,35 +86,22 @@ const MainContainer = () => {
         setDungeons(data.data);
     };
 
-    const fetchDungeons = async (currentPage) => {
-        const res = await fetch(
-            `https://zelda.fanapis.com/api/dungeons?limit=20&page=${currentPage}`
-        );
-        const data = await res.json();
-        return data.data;
-    }
-
-    // function assignCurrentPage(page) {
-    //     const tempPage = page
-    //     setCurrentPage(tempPage)
-    // } 
-
   return (
     <>
     <Router>
         <NavBar />
             <Routes>
                 <Route exact path="/" element={<Home />} />
-                <Route exact path="/games" element={<GamesList games={games}/>} />
+                <Route exact path="/games" element={<GamesList games={games} setGames={setGames}/>} />
                 <Route exact path="/games/:gameId" element={<SingleGame games={games} />} />
-                <Route exact path="/staff" element={<StaffList staff={staff}/> } />
-                <Route exact path="/characters" element={<CharactersList characters={characters}/>} />
+                <Route exact path="/staff" element={<StaffList staff={staff} setStaff={setStaff}/> } />
+                <Route exact path="/characters" element={<CharactersList characters={characters} setCharacters={setCharacters}/>} />
                 <Route exact path="/characters/:characterId" element={<SingleCharacter characters={characters} />} />
-                <Route exact path="/monsters" element={<MonstersList monsters={monsters}/>} />
+                <Route exact path="/monsters" element={<MonstersList monsters={monsters} setMonsters={setMonsters}/>} />
                 <Route exact path="/monsters/:monsterId" element={<SingleMonster monsters={monsters} />} />
-                <Route exact path="/bosses" element={<BossesList bosses={bosses}/>} />
+                <Route exact path="/bosses" element={<BossesList bosses={bosses} setBosses={setBosses}/>} />
                 <Route exact path="/bosses/:bossId" element={<SingleBoss bosses={bosses} />} />
-                <Route exact path="/dungeons" element={<DungeonsList dungeons={dungeons} fetchDungeons={fetchDungeons} setDungeons={setDungeons}/>} />
+                <Route exact path="/dungeons" element={<DungeonsList dungeons={dungeons} setDungeons={setDungeons}/>} />
                 <Route exact path="/dungeons/:dungeonId" element={<SingleDungeon dungeons={dungeons}/>} />
 
             </Routes>

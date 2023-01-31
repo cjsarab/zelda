@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 
-const dungeonsList = ({dungeons, fetchDungeons, setDungeons}) => {
+const dungeonsList = ({dungeons, setDungeons}) => {
 
 
     dungeons.sort(function (x,y) {
@@ -15,19 +15,20 @@ const dungeonsList = ({dungeons, fetchDungeons, setDungeons}) => {
     const dungeonItems = dungeons.map((dungeon) => {
     return <div key={dungeon.id}>
                 <h2>  {dungeon.name}  </h2>
-            <Link to={`/dungeons/${dungeon.id}`}>Description...</Link>
-
+                    <Link to={`/dungeons/${dungeon.id}`}>Description...</Link>
                 <hr></hr>
             </div>
       });
 
-
-
-
-
+    const fetchDungeons = async (currentPage) => {
+        const res = await fetch(
+            `https://zelda.fanapis.com/api/dungeons?limit=20&page=${currentPage}`
+        );
+        const data = await res.json();
+        return data.data;
+    };
 
     const handlePageClick = async (data) => {
-
         let currentPage = data.selected;
         const tempDungeonsData = await fetchDungeons(currentPage);
         setDungeons(tempDungeonsData)

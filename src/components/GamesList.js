@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import ReactPaginate from 'react-paginate';
 
-const GamesList = ({games}) => {
+const GamesList = ({games, setGames}) => {
 
 
     games.sort(function (x, y) {
@@ -22,10 +23,33 @@ const GamesList = ({games}) => {
             </div>
       });
 
+      const fetchGames = async (currentPage) => {
+        const res = await fetch(
+            `https://zelda.fanapis.com/api/games?limit=20&page=${currentPage}`
+        );
+        const data = await res.json();
+        return data.data;
+    };
+
+    const handlePageClick = async (data) => {
+        let currentPage = data.selected;
+        const tempGamesData = await fetchGames(currentPage);
+        setGames(tempGamesData)
+    }
+
 
   return (
         <>
             <ul className="list">{gameItems}</ul>
+
+            <ReactPaginate
+            breakLabel="..."
+            previousLabel="Previous Page"
+            nextLabel="Next Page"
+            onPageChange={handlePageClick}
+            pageCount = {2}
+            pageRangeDisplayed = {6} 
+            />
         </>
     )
 }

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import ReactPaginate from 'react-paginate';
 
-const bossesList = ({bosses}) => {
+const bossesList = ({bosses, setBosses}) => {
 
 
     bosses.sort(function (x,y) {
@@ -20,10 +21,32 @@ const bossesList = ({bosses}) => {
             </div>
       });
 
+      const fetchBosses = async (currentPage) => {
+        const res = await fetch(
+            `https://zelda.fanapis.com/api/bosses?limit=20&page=${currentPage}`
+        );
+        const data = await res.json();
+        return data.data;
+    };
+
+    const handlePageClick = async (data) => {
+        let currentPage = data.selected;
+        const tempBossesData = await fetchBosses(currentPage);
+        setBosses(tempBossesData)
+    }
+
 
   return (
         <>
             <ul className="list">{bossItems}</ul>
+            <ReactPaginate
+            breakLabel="..."
+            previousLabel="Previous Page"
+            nextLabel="Next Page"
+            onPageChange={handlePageClick}
+            pageCount = {14}
+            pageRangeDisplayed = {6} 
+            />
         </>
     )
 }

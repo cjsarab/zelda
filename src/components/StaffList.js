@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import ReactPaginate from "react-paginate";
 
-const StaffList = ({staff}) => {
+const StaffList = ({staff, setStaff}) => {
 
     staff.sort(function (x,y) {
 
@@ -23,11 +24,33 @@ const StaffList = ({staff}) => {
                     <hr></hr>
                 </div>
           });
+
+          const fetchStaff = async (currentPage) => {
+            const res = await fetch(
+                `https://zelda.fanapis.com/api/staff?limit=20&page=${currentPage}`
+            );
+            const data = await res.json();
+            return data.data;
+        };
+    
+        const handlePageClick = async (data) => {
+            let currentPage = data.selected;
+            const tempStaffData = await fetchStaff(currentPage);
+            setStaff(tempStaffData)
+        }
     
     
       return (
             <>
                 <ul className="list">{staffItems}</ul>
+                <ReactPaginate
+            breakLabel="..."
+            previousLabel="Previous Page"
+            nextLabel="Next Page"
+            onPageChange={handlePageClick}
+            pageCount = {13}
+            pageRangeDisplayed = {6} 
+            />
             </>
         )
 
