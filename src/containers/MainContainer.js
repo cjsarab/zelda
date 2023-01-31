@@ -18,7 +18,7 @@ import SingleDungeon from '../components/SingleDungeon';
 const MainContainer = () => {
 
     const [isLoading, setIsLoading] = useState(true)
-    const [currentPage, setCurrentPage] = useState (0)
+    // const [currentPage, setCurrentPage] = useState (0)
     const [itemsPerPage, setItemsPerPage] = useState (20)
     const [games, setGames] = useState([])
     const [staff, setStaff] = useState([])
@@ -76,16 +76,24 @@ const MainContainer = () => {
 
     const getDungeons = async () => {
         const res = await fetch(
-            `https://zelda.fanapis.com/api/dungeons?limit=20&page=${currentPage}`
+            `https://zelda.fanapis.com/api/dungeons?limit=20&page=0`
         );
         const data = await res.json();
         setDungeons(data.data);
     };
 
-    function assignCurrentPage(page) {
-        const tempPage = page
-        setCurrentPage(tempPage)
-    } 
+    const fetchDungeons = async (currentPage) => {
+        const res = await fetch(
+            `https://zelda.fanapis.com/api/dungeons?limit=20&page=${currentPage}`
+        );
+        const data = await res.json();
+        return data.data;
+    }
+
+    // function assignCurrentPage(page) {
+    //     const tempPage = page
+    //     setCurrentPage(tempPage)
+    // } 
 
   return (
     <>
@@ -102,7 +110,7 @@ const MainContainer = () => {
                 <Route exact path="/monsters/:monsterId" element={<SingleMonster monsters={monsters} />} />
                 <Route exact path="/bosses" element={<BossesList bosses={bosses}/>} />
                 <Route exact path="/bosses/:bossId" element={<SingleBoss bosses={bosses} />} />
-                <Route exact path="/dungeons" element={<DungeonsList dungeons={dungeons} assignCurrentPage={assignCurrentPage} currentPage={currentPage} getDungeons={getDungeons} setDungeons={setDungeons}/>} />
+                <Route exact path="/dungeons" element={<DungeonsList dungeons={dungeons} fetchDungeons={fetchDungeons} setDungeons={setDungeons}/>} />
                 <Route exact path="/dungeons/:dungeonId" element={<SingleDungeon dungeons={dungeons}/>} />
 
             </Routes>
