@@ -14,28 +14,34 @@ import BossesList from '../components/BossesList';
 import SingleBoss from '../components/SingleBoss';
 import DungeonsList from '../components/DungeonsList';
 import SingleDungeon from '../components/SingleDungeon';
+import PlacesList from '../components/PlacesList';
+import SinglePlace from '../components/SinglePlace';
+import ItemsList from '../components/ItemsList';
+import SingleItem from '../components/SingleItem';
+
 
 const MainContainer = () => {
 
-    const [isLoading, setIsLoading] = useState(true)
-    // const [currentPage, setCurrentPage] = useState (0)
-    const [itemsPerPage, setItemsPerPage] = useState (20)
     const [games, setGames] = useState([])
     const [staff, setStaff] = useState([])
     const [characters, setCharacters] = useState([])
     const [monsters, setMonsters] = useState([])
     const [bosses, setBosses] = useState([])
     const [dungeons, setDungeons] = useState([])
+    const [places, setPlaces] = useState([])
+    const [items, setItems] = useState([])
 
 
     useEffect(() => {
-        // getItemsPerPage();
         getGames();
         getStaff();
         getCharacters();
         getMonsters();
         getBosses();
         getDungeons();
+        getPlaces();
+        getItems();
+
     }, []);
 
     const getGames = async () => {
@@ -86,6 +92,23 @@ const MainContainer = () => {
         setDungeons(data.data);
     };
 
+    const getPlaces = async () => {
+        const res = await fetch(
+            `https://zelda.fanapis.com/api/places?limit=20&page=0`
+        );
+        const data = await res.json();
+        setPlaces(data.data);
+    };
+
+    const getItems = async () => {
+        const res = await fetch(
+            `https://zelda.fanapis.com/api/items?limit=20&page=0`
+        );
+        const data = await res.json();
+        setItems(data.data);
+    };
+
+
   return (
     <>
     <Router>
@@ -103,6 +126,12 @@ const MainContainer = () => {
                 <Route exact path="/bosses/:bossId" element={<SingleBoss bosses={bosses} />} />
                 <Route exact path="/dungeons" element={<DungeonsList dungeons={dungeons} setDungeons={setDungeons}/>} />
                 <Route exact path="/dungeons/:dungeonId" element={<SingleDungeon dungeons={dungeons}/>} />
+                <Route exact path="/places" element={<PlacesList places={places} setPlaces={setPlaces}/>} />
+                <Route exact path="/places/:placeId" element={<SinglePlace places={places}/>} />
+                <Route exact path="/items" element={<ItemsList items={items} setItems={setItems}/>} />
+                <Route exact path="/items/:itemId" element={<SingleItem items={items}/>} />
+
+
 
             </Routes>
     </Router>

@@ -27,6 +27,12 @@ const NavBar = () => {
             <li className='dungeons'>
                 <Link to="/dungeons">Dungeons</Link>
             </li>
+            <li className='places'>
+                <Link to="/places">Places</Link>
+            </li>
+            <li className='items'>
+                <Link to="/items">Items</Link>
+            </li>
         </ul>
     </div>
   )

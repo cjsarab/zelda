@@ -6,9 +6,7 @@ const SingleCharacter = ({characters}) => {
     const {characterId} = useParams();
 
     const character = characters.find((character) => character.id === characterId);
-
-    console.log(character)
-
+    console.log(character.appearances)
 
     const slicedCharacter = character.appearances[0].slice(-24)
 

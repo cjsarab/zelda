@@ -4,16 +4,13 @@ import { Link, useParams } from 'react-router-dom'
 const SingleDungeon = ({dungeons}) => {
 
     const {dungeonId} = useParams();
+    var dungeon = dungeons.find((dungeon) => dungeon.id === dungeonId);
 
-    console.log(dungeonId)
-    console.log(dungeons)
+    let dungeonAppearances = {};
 
-    const dungeon = dungeons.find((dungeon) => dungeon.id === dungeonId);
+    let slicedDungeonAppearance = dungeon.appearances[0].slice(-24)
 
-    console.log(dungeon)
-
-
-    const sliceddungeon = dungeon.appearances[0].slice(-24)
+    dungeonAppearances[0] = slicedDungeonAppearance
 
   return (
     <>
@@ -21,7 +18,7 @@ const SingleDungeon = ({dungeons}) => {
                 {dungeon.name}
             </h2>
             <div>
-                <Link to={`/games/${sliceddungeon}`}>Was In... </Link>
+                <Link to={`/games/${dungeonAppearances[0]}`}>Was In... </Link>
             </div>
             <div>
                 {dungeon.description}

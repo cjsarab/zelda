@@ -4,10 +4,7 @@ import { Link, useParams} from 'react-router-dom'
 const SingleGame = ({games}) => {
 
     const {gameId} = useParams();
-
     const game = games.find((game) => game.id === gameId);
-
-    console.log(game)
 
   return (
     <>
