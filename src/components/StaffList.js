@@ -16,12 +16,11 @@ const StaffList = ({staff, setStaff}) => {
 
         const slicedGame = staffItem.worked_on[0].slice(-24)
 
-        return <div key={staffItem.id}>
+        return <div className="item" key={staffItem.id}>
                     <h2>  {staffItem.name}  </h2>
-                <Link to={`/games/${slicedGame}`}>Worked on...</Link>
+                <Link className="link" to={`/games/${slicedGame}`}>Worked on...</Link>
                 <div>
                 </div>
-                    <hr></hr>
                 </div>
           });
 
@@ -42,15 +41,19 @@ const StaffList = ({staff, setStaff}) => {
     
       return (
             <>
-                <ul className="list">{staffItems}</ul>
+            <div className="display-container">
+            <ul className="list">{staffItems}</ul>
                 <ReactPaginate
+                className={"pagination"}
             breakLabel="..."
-            previousLabel="Previous Page"
-            nextLabel="Next Page"
+            previousLabel="<"
+            nextLabel=">"
             onPageChange={handlePageClick}
             pageCount = {13}
-            pageRangeDisplayed = {6} 
+            pageRangeDisplayed = {3} 
             />
+            </div>
+
             </>
         )
 

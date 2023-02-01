@@ -13,11 +13,9 @@ const bossesList = ({bosses, setBosses}) => {
     })
 
     const bossItems = bosses.map((boss) => {
-    return <div key={boss.id}>
+    return <div className="item" key={boss.id}>
                 <h2>  {boss.name}  </h2>
-            <Link to={`/bosses/${boss.id}`}>Description...</Link>
-
-                <hr></hr>
+            <Link className="link" to={`/bosses/${boss.id}`}>Description...</Link>
             </div>
       });
 
@@ -38,15 +36,19 @@ const bossesList = ({bosses, setBosses}) => {
 
   return (
         <>
-            <ul className="list">{bossItems}</ul>
+        <div className="display-container">
+        <ul className="list">{bossItems}</ul>
             <ReactPaginate
+            className={"pagination"}
             breakLabel="..."
-            previousLabel="Previous Page"
-            nextLabel="Next Page"
+            previousLabel="<"
+            nextLabel=">"
             onPageChange={handlePageClick}
             pageCount = {14}
             pageRangeDisplayed = {6} 
             />
+        </div>
+
         </>
     )
 }

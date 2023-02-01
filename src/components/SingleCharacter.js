@@ -12,23 +12,29 @@ const SingleCharacter = ({characters}) => {
 
   return (
     <>
+    <div className="single-item">
+        <div className="item">
+            <div className="details">
             <h2>
                 {character.name}
             </h2>
             <div>
-                <Link to={`/games/${slicedCharacter}`}>Was In ... </Link>
+                <Link className="link" to={`/games/${slicedCharacter}`}>Was In ... </Link>
             </div>
-            <div>
+            <div className="description">
                 {character.description}
             </div>
 
             <div>
-                <Link to='/characters'> Back to characters </Link>
+                <Link className="link" to='/characters'> Back to characters </Link>
             </div>
 
             <div>
-                <hr></hr>
             </div>
+            </div>
+        </div>
+    </div>
+
 
     </>
   )

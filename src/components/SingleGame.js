@@ -8,10 +8,13 @@ const SingleGame = ({games}) => {
 
   return (
     <>
+    <div className="single-item">
+    <div className="item">
+        <div className="details">
             <h2>
                 {game.name}
             </h2>
-            <div>
+            <div className="description">
                 {game.description}
             </div>
             <div>
@@ -24,11 +27,14 @@ const SingleGame = ({games}) => {
                 <b>Release Date: </b>{game.released_date}
             </div>
             <div>
-                <Link to='/games'> All games... </Link>
+                <Link className="link" to='/games'> All games... </Link>
             </div>
             <div>
-                <hr></hr>
             </div>
+            </div>
+    </div>
+    </div>
+
 
     </>
   )

@@ -15,10 +15,9 @@ const ItemsList = ({items, setItems}) => {
     const itemsItems = items.map((item) => {
 
 
-    return <div key={item.id}>
+    return <div className='item' key={item.id}>
                 <h2>  {item.name}  </h2>
-            <Link to={`/items/${item.id}`}>Description... </Link>
-                <hr></hr>
+            <Link className='link' to={`/items/${item.id}`}>Description... </Link>
             </div>
       });
 
@@ -39,15 +38,19 @@ const ItemsList = ({items, setItems}) => {
 
   return (
         <>
-            <ul className="list">{itemsItems}</ul>
+        <div className='display-container'>
+        <ul className="list">{itemsItems}</ul>
             <ReactPaginate
+            className={"pagination"}
             breakLabel="..."
-            previousLabel="Previous Page"
-            nextLabel="Next Page"
+            previousLabel="<"
+            nextLabel=">"
             onPageChange={handlePageClick}
             pageCount = {94}
             pageRangeDisplayed = {6} 
             />
+        </div>
+
         </>
     )
 }

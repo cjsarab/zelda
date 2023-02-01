@@ -12,9 +12,14 @@
     src: url(./fonts/IBM_Plex_Sans/IBMPlexSans-Medium.ttf)
 }
 
+
+
 .app {
     background-image: linear-gradient(black, green);
-    margin: -1vh;
+    margin-top: -1vh;
+    margin-left: -1vh;
+    margin-right: -1vh;
+    margin-bottom: -20vh;
   }
 
 .title-banner {
@@ -89,5 +94,127 @@ li {
 
 .other-logo-button:hover {
     transform: scale(1.2);
+}
+
+.list {
+    background-image: linear-gradient(goldenrod, black);
+    font-family: ibm;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 0.2vw solid black;
+    border-radius: 10%;
+}
+
+.item {
+    width: 20%;
+    margin: 1vw;
+    background-color: #202939;
+    font-family: ibm;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: transform .4s;
+}
+
+.item:hover {
+    transform: scale(1.1);
+}
+
+.item h2 {
+    color: goldenrod;
+    justify-content: center;
+    align-items: center;
+}
+
+.item .link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blueviolet;
+    margin: 1vh;
+    font-size: larger;
+}
+
+.item .link:hover {
+    color: green;
+}
+
+.description {
+    padding: 2vh 2vw;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.display-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5vh;
+}
+
+.single-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+}
+
+.single-item .item {
+    width: 50%;
+    height: 50%;
+    margin: 6vh;
+}
+
+.single-item .item h2 {
+    font-size: xx-large;
+}
+
+.single-item .description {
+    font-size: x-large;
+    margin-bottom: 6vh;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    background-color: none;
+    height: 4vh;
+    width: 60%;
+    font-family: ibm;
+
+
+}
+
+.pagination a {
+    color: black;
+    text-decoration: none;
+    border: 0.1vh solid black;
+    height: 100%;
+    width: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    background-color: gold;
+    border-radius: 10%;
+    transition: transform .4s;
+  }
+
+.pagination a:hover {
+    cursor: pointer;
+    transform: scale(1.2)
 }
   

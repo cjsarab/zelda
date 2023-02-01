@@ -15,10 +15,10 @@ const SingleBoss = ({bosses}) => {
 
 
     let slicedBossAppearance = boss.appearances[0].slice(-24)
-    // let slicedBossDungeon = boss.dungeons[0].slice(-24)
+    let slicedBossDungeon = boss.dungeons[0].slice(-24)
 
     bossAppearances[0] = slicedBossAppearance
-    // bossDungeons[0] = slicedBossDungeon
+    bossDungeons[0] = slicedBossDungeon
 
     console.log(bossDungeons)
 
@@ -26,26 +26,28 @@ const SingleBoss = ({bosses}) => {
 
   return (
     <>
+    <div className='single-item'>
+        <div className='item'>
+            <div className="details">
             <h2>
                 {boss.name}
             </h2>
             <div>
-                <Link to={`/games/${bossAppearances[0]}`}>Game In... </Link>
+                <Link className="link" to={`/games/${bossAppearances[0]}`}>Game In... </Link>
             </div>
-            <div>
+            <div className="description">
                 {boss.description}
             </div>
-            {/* <div>
-                <Link to={`/dungeons/${bossDungeons[0]}`}>Dungeon... </Link>
-            </div> */}
-
             <div>
-                <Link to='/bosses'> Back to bosses... </Link>
+                <Link className="link" to={`/dungeons/${bossDungeons[0]}`}>Dungeon... </Link>
             </div>
 
             <div>
-                <hr></hr>
+                <Link className="link" to='/bosses'> Back to bosses... </Link>
             </div>
+            </div>
+        </div>
+    </div>
 
     </>
   )

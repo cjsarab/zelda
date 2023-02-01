@@ -13,11 +13,9 @@ const placesList = ({places, setPlaces}) => {
     })
 
     const placeItems = places.map((place) => {
-    return <div key={place.id}>
+    return <div className="item" key={place.id}>
                 <h2>  {place.name}  </h2>
-            <Link to={`/places/${place.id}`}>Description...</Link>
-
-                <hr></hr>
+            <Link className="link" to={`/places/${place.id}`}>Description...</Link>
             </div>
       });
 
@@ -38,15 +36,19 @@ const placesList = ({places, setPlaces}) => {
 
   return (
         <>
-            <ul className="list">{placeItems}</ul>
+        <div className="display-container">
+        <ul className="list">{placeItems}</ul>
             <ReactPaginate
+            className={"pagination"}
             breakLabel="..."
-            previousLabel="Previous Page"
-            nextLabel="Next Page"
+            previousLabel="<"
+            nextLabel=">"
             onPageChange={handlePageClick}
             pageCount = {14}
-            pageRangeDisplayed = {6} 
+            pageRangeDisplayed = {3} 
             />
+        </div>
+
         </>
     )
 }

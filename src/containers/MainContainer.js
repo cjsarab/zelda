@@ -20,6 +20,8 @@ import SinglePlace from '../components/SinglePlace';
 import ItemsList from '../components/ItemsList';
 import SingleItem from '../components/SingleItem';
 
+// import useFetch from '../components/helpers/useFetch';
+
 
 const MainContainer = () => {
 
@@ -42,7 +44,6 @@ const MainContainer = () => {
         getDungeons();
         getPlaces();
         getItems();
-
     }, []);
 
     const getGames = async () => {
@@ -109,7 +110,6 @@ const MainContainer = () => {
         setItems(data.data);
     };
 
-
   return (
     <>
     <Router>
@@ -128,11 +128,12 @@ const MainContainer = () => {
                     <Route exact path="/bosses" element={<BossesList bosses={bosses} setBosses={setBosses}/>} />
                     <Route exact path="/bosses/:bossId" element={<SingleBoss bosses={bosses} />} />
                     <Route exact path="/dungeons" element={<DungeonsList dungeons={dungeons} setDungeons={setDungeons}/>} />
-                    <Route exact path="/dungeons/:dungeonId" element={<SingleDungeon dungeons={dungeons}/>} />
+                    <Route exact path="/dungeons/:dungeonId" element={<SingleDungeon dungeons={dungeons} setDungeons={setDungeons}/>} />
                     <Route exact path="/places" element={<PlacesList places={places} setPlaces={setPlaces}/>} />
                     <Route exact path="/places/:placeId" element={<SinglePlace places={places}/>} />
                     <Route exact path="/items" element={<ItemsList items={items} setItems={setItems}/>} />
                     <Route exact path="/items/:itemId" element={<SingleItem items={items}/>} />
+
 
 
 

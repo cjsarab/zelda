@@ -1,10 +1,13 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom'
 
-const SingleDungeon = ({dungeons}) => {
+const SingleDungeon = ({dungeons, setDungeons}) => {
 
     const {dungeonId} = useParams();
-    var dungeon = dungeons.find((dungeon) => dungeon.id === dungeonId);
+
+    var dungeon = dungeons.find(dungeon => dungeon.id === dungeonId);
+
 
     let dungeonAppearances = {};
 
@@ -14,23 +17,26 @@ const SingleDungeon = ({dungeons}) => {
 
   return (
     <>
+    <div className='single-item'>
+        <div className='item'>
+            <div className='details'>
             <h2>
                 {dungeon.name}
             </h2>
             <div>
                 <Link to={`/games/${dungeonAppearances[0]}`}>Was In... </Link>
             </div>
-            <div>
+            <div className="description">
                 {dungeon.description}
             </div>
 
             <div>
                 <Link to='/dungeons'> Back to dungeons... </Link>
             </div>
-
-            <div>
-                <hr></hr>
             </div>
+        </div>
+    </div>
+
 
     </>
   )

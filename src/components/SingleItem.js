@@ -12,23 +12,27 @@ const SingleItem = ({items}) => {
 
   return (
     <>
+    <div className='single-item'>
+        <div className='item'>
+            <div className='details'>
             <h2>
                 {item.name}
             </h2>
             <div>
-                <Link to={`/games/${slicedItem}`}>Was In ... </Link>
+                <Link className='link' to={`/games/${slicedItem}`}>Was In ... </Link>
             </div>
-            <div>
+            <div className='description'>
                 {item.description}
             </div>
 
             <div>
-                <Link to='/items'> Back to items </Link>
+                <Link className='link' to='/items'> Back to items </Link>
             </div>
 
-            <div>
-                <hr></hr>
             </div>
+        </div>
+    </div>
+
 
     </>
   )

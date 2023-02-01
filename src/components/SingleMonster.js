@@ -14,23 +14,25 @@ const SingleMonster = ({monsters}) => {
 
   return (
     <>
+    <div className="single-item">
+        <div className="item">
+            <div className='details'>
             <h2>
                 {monster.name}
             </h2>
             <div>
-                <Link to={`/games/${slicedmonster}`}>Was In ... </Link>
+                <Link className="link" to={`/games/${slicedmonster}`}>Was In ... </Link>
             </div>
-            <div>
+            <div className="description">
                 {monster.description}
             </div>
 
             <div>
-                <Link to='/monsters'> Back to monsters </Link>
+                <Link className="link" to='/monsters'> Back to monsters </Link>
             </div>
-
-            <div>
-                <hr></hr>
             </div>
+        </div>
+    </div>
 
     </>
   )

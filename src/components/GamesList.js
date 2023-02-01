@@ -12,14 +12,15 @@ const GamesList = ({games, setGames}) => {
     })
 
     const gameItems = games.map((game) => {
-    return <div key={game.id}>
+    return <div className="item" key={game.id}>
                 <h2>  {game.name}  </h2>
-            <Link to={`/games/${game.id}`}>Description...</Link>
-
+            <Link className="link" to={`/games/${game.id}`}>Description...</Link>
+            <div className="details">
             <div>   <b>Developer: </b>{game.developer}</div>
             <div>   <b>Publisher: </b>{game.publisher}</div>
             <div>   <b>Release Date: </b>{game.released_date}</div>
-                <hr></hr>
+            </div>
+
             </div>
       });
 
@@ -40,16 +41,20 @@ const GamesList = ({games, setGames}) => {
 
   return (
         <>
-            <ul className="list">{gameItems}</ul>
-
+        <div className="display-container">
+            <ul className="list">
+                    {gameItems}
+            </ul>
             <ReactPaginate
+            className={"pagination"}
             breakLabel="..."
-            previousLabel="Previous Page"
-            nextLabel="Next Page"
+            previousLabel="<"
+            nextLabel=">"
             onPageChange={handlePageClick}
             pageCount = {2}
             pageRangeDisplayed = {6} 
             />
+        </div>
         </>
     )
 }

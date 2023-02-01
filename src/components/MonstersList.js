@@ -13,10 +13,9 @@ const MonstersList = ({monsters, setMonsters}) => {
     })
 
     const monsterItems = monsters.map((monster) => {
-    return <div key={monster.id}>
+    return <div className="item" key={monster.id}>
                 <h2>  {monster.name}  </h2>
-            <Link to={`/monsters/${monster.id}`}>Description...</Link>
-                <hr></hr>
+            <Link className="link" to={`/monsters/${monster.id}`}>Description...</Link>
             </div>
       });
 
@@ -37,15 +36,19 @@ const MonstersList = ({monsters, setMonsters}) => {
 
   return (
         <>
-            <ul className="list">{monsterItems}</ul>
+        <div className='display-container'>
+        <ul className="list">{monsterItems}</ul>
             <ReactPaginate
+            className={"pagination"}
             breakLabel="..."
-            previousLabel="Previous Page"
-            nextLabel="Next Page"
+            previousLabel="<"
+            nextLabel=">"
             onPageChange={handlePageClick}
             pageCount = {42}
-            pageRangeDisplayed = {6} 
+            pageRangeDisplayed = {5} 
             />
+        </div>
+
         </>
     )
 }

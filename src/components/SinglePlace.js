@@ -13,23 +13,26 @@ const SinglePlace = ({places}) => {
 
   return (
     <>
+    <div className='single-item'>
+        <div className='item'>
+            <div className='details'>
             <h2>
                 {place.name}
             </h2>
             <div>
-                <Link to={`/games/${slicedAppearance}`}>Was In ... </Link>
+                <Link className="link" to={`/games/${slicedAppearance}`}>Was In ... </Link>
             </div>
-            <div>
+            <div className='description'>
                 {place.description}
             </div>
 {/* 
             <div>
                 <Link to={`/characters/${slicedInhabitant}`}> Inhabited by ... </Link>
             </div> */}
-
-            <div>
-                <hr></hr>
             </div>
+        </div>
+    </div>
+
 
     </>
   )
