@@ -15,13 +15,15 @@ const CharactersList = ({characters, setCharacters}) => {
     const characterItems = characters.map((character) => {
 
     return <div className="item" key={character.id}>
+    <Link className="link" to={`/characters/${character.id}`}>
                 <h2>  {character.name}  </h2>
-            <Link className="link" to={`/characters/${character.id}`}>Description... </Link>
+
             <div className="details">
             <div>   <b>Gender: </b>{character.gender ? character.gender : 'Unknown'}</div>
             <div>   <b>Race: </b>{character.race ? character.race : 'Unknown'}</div>
 
             </div>
+            </Link>
             </div>
       });
 

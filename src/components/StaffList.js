@@ -17,10 +17,13 @@ const StaffList = ({staff, setStaff}) => {
         const slicedGame = staffItem.worked_on[0].slice(-24)
 
         return <div className="item" key={staffItem.id}>
+                            <Link className="link" to={`/games/${slicedGame}`}>
+
+
                     <h2>  {staffItem.name}  </h2>
-                <Link className="link" to={`/games/${slicedGame}`}>Worked on...</Link>
                 <div>
                 </div>
+                </Link>
                 </div>
           });
 

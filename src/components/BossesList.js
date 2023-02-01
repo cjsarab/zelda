@@ -14,8 +14,10 @@ const bossesList = ({bosses, setBosses}) => {
 
     const bossItems = bosses.map((boss) => {
     return <div className="item" key={boss.id}>
+        <Link className="link" to={`/bosses/${boss.id}`}>
                 <h2>  {boss.name}  </h2>
-            <Link className="link" to={`/bosses/${boss.id}`}>Description...</Link>
+            
+            </Link>
             </div>
       });
 

@@ -14,8 +14,9 @@ const placesList = ({places, setPlaces}) => {
 
     const placeItems = places.map((place) => {
     return <div className="item" key={place.id}>
-                <h2>  {place.name}  </h2>
-            <Link className="link" to={`/places/${place.id}`}>Description...</Link>
+            <Link className="link" to={`/places/${place.id}`}>
+                <h2>  {place.name}  </h2> 
+            </Link>
             </div>
       });
 

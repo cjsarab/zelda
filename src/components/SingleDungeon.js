@@ -1,6 +1,8 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom'
+import Arrow from '../img/Arrow.png'
+import cartridge2 from '../img/cartridge2.png'
 
 const SingleDungeon = ({dungeons, setDungeons}) => {
 
@@ -24,14 +26,17 @@ const SingleDungeon = ({dungeons, setDungeons}) => {
                 {dungeon.name}
             </h2>
             <div>
-                <Link to={`/games/${dungeonAppearances[0]}`}>Was In... </Link>
+                <Link to={`/games/${dungeonAppearances[0]}`}>
+                <img className="other-logo-button" src={cartridge2} title="game" alt="game"></img>
+                </Link>
             </div>
             <div className="description">
                 {dungeon.description}
             </div>
-
             <div>
-                <Link to='/dungeons'> Back to dungeons... </Link>
+                <Link to='/dungeons'> 
+                <img className="other-logo-button" src={Arrow} title="back" alt="back"></img>
+                 </Link>
             </div>
             </div>
         </div>

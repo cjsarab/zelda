@@ -16,8 +16,11 @@ const ItemsList = ({items, setItems}) => {
 
 
     return <div className='item' key={item.id}>
+            <Link className='link' to={`/items/${item.id}`}>
+
                 <h2>  {item.name}  </h2>
-            <Link className='link' to={`/items/${item.id}`}>Description... </Link>
+                
+            </Link>
             </div>
       });
 

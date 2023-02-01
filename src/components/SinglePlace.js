@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
+import Arrow from '../img/Arrow.png'
+import cartridge2 from '../img/cartridge2.png'
 
 const SinglePlace = ({places}) => {
 
@@ -20,10 +22,18 @@ const SinglePlace = ({places}) => {
                 {place.name}
             </h2>
             <div>
-                <Link className="link" to={`/games/${slicedAppearance}`}>Was In ... </Link>
+                <Link className="link" to={`/games/${slicedAppearance}`}>
+                <img className="other-logo-button" src={cartridge2} title="game" alt="game"></img>
+
+                </Link>
             </div>
             <div className='description'>
                 {place.description}
+            </div>
+            <div>
+                <Link className="link" to='/places'>
+                <img className="other-logo-button" src={Arrow} title="back" alt="back"></img>
+                </Link>
             </div>
 {/* 
             <div>

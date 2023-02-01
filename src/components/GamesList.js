@@ -13,13 +13,15 @@ const GamesList = ({games, setGames}) => {
 
     const gameItems = games.map((game) => {
     return <div className="item" key={game.id}>
+        
+            <Link className="link" to={`/games/${game.id}`}>
                 <h2>  {game.name}  </h2>
-            <Link className="link" to={`/games/${game.id}`}>Description...</Link>
             <div className="details">
             <div>   <b>Developer: </b>{game.developer}</div>
             <div>   <b>Publisher: </b>{game.publisher}</div>
             <div>   <b>Release Date: </b>{game.released_date}</div>
             </div>
+            </Link>
 
             </div>
       });

@@ -59,11 +59,6 @@ const NavBar = () => {
                 <img className="other-logo-button" src={Hookshot} title="Items" alt="logo"></img>
                 </Link>
             </li>
-            <li className='items'>
-                <Link to="/data">
-                <img className="other-logo-button" src={Hookshot} title="Items" alt="logo"></img>
-                </Link>
-            </li>
         </ul>
     </div>
   )

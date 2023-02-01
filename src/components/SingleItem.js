@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
+import Arrow from '../img/Arrow.png'
+import cartridge2 from '../img/cartridge2.png'
 
 const SingleItem = ({items}) => {
 
@@ -19,14 +21,18 @@ const SingleItem = ({items}) => {
                 {item.name}
             </h2>
             <div>
-                <Link className='link' to={`/games/${slicedItem}`}>Was In ... </Link>
+                <Link className='link' to={`/games/${slicedItem}`}>
+                <img className="other-logo-button" src={cartridge2} title="game" alt="game"></img>
+                </Link>
             </div>
             <div className='description'>
                 {item.description}
             </div>
 
             <div>
-                <Link className='link' to='/items'> Back to items </Link>
+                <Link className='link' to='/items'>
+                <img className="other-logo-button" src={Arrow} title="back" alt="back"></img>
+                </Link>
             </div>
 
             </div>

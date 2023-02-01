@@ -14,8 +14,9 @@ const dungeonsList = ({dungeons, setDungeons}) => {
 
     const dungeonItems = dungeons.map((dungeon) => {
     return <div className="item" key={dungeon.id}>
+            <Link className="link" to={`/dungeons/${dungeon.id}`}>
                 <h2>  {dungeon.name}  </h2>
-                    <Link className="link" to={`/dungeons/${dungeon.id}`}>Description...</Link>
+                    </Link>
             </div>
       });
 

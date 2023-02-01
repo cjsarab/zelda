@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
+import Arrow from '../img/Arrow.png'
+import cartridge2 from '../img/cartridge2.png'
 
 const SingleBoss = ({bosses}) => {
 
@@ -33,17 +35,21 @@ const SingleBoss = ({bosses}) => {
                 {boss.name}
             </h2>
             <div>
-                <Link className="link" to={`/games/${bossAppearances[0]}`}>Game In... </Link>
+                <Link className="link" to={`/games/${bossAppearances[0]}`}>
+                <img className="other-logo-button" src={cartridge2} title="game" alt="game"></img>
+                </Link>
             </div>
             <div className="description">
                 {boss.description}
             </div>
-            <div>
+            {/* <div>
                 <Link className="link" to={`/dungeons/${bossDungeons[0]}`}>Dungeon... </Link>
-            </div>
+            </div> */}
 
             <div>
-                <Link className="link" to='/bosses'> Back to bosses... </Link>
+                <Link className="link" to='/bosses'>
+                <img className="other-logo-button" src={Arrow} title="back" alt="back"></img>
+                </Link>
             </div>
             </div>
         </div>

@@ -14,8 +14,9 @@ const MonstersList = ({monsters, setMonsters}) => {
 
     const monsterItems = monsters.map((monster) => {
     return <div className="item" key={monster.id}>
+        <Link className="link" to={`/monsters/${monster.id}`}>
                 <h2>  {monster.name}  </h2>
-            <Link className="link" to={`/monsters/${monster.id}`}>Description...</Link>
+            </Link>
             </div>
       });
 
